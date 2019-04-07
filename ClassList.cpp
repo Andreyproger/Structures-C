@@ -18,7 +18,21 @@ class ForwardList
   Node last;
   
 public:
-  Forward() : first(NULL), last(NULL)
+  Forward() : first(NULL), last(NULL) // initialization before 
   {}
+  
+  ~Forward()
+  {
+    while(first)
+    {
+      first = first->next;
+      delete first;
+    }
+  }
+  
+  void push_front(T value)
+  {
+    
+  }
 };
 }
