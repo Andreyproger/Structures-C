@@ -60,7 +60,58 @@ public:
       last->next = NULL;
       
       first = last;
+    } else {
+      
+      Node * n = new Node();
+      
+      last -> next = n;
+      n -> data = value;
+      n -> next = NULL;
+      
+      last = n;
     }
-  }
+ }
+ 
+ 
+ void erase_front ()
+ {
+   Node * n = first;
+   first = first -> next;
+   delete n;
+ }
+  
+ bool empty() const
+ {
+   return first == NULL;
+ }
+  
+ std::size_t size() const
+ {
+   Node * n = first;
+   int k = 0;
+   
+   while(n)
+   {
+     n = n->next;
+     ++k;
+   }
+   
+   return k;
+ }
 };
+  
+template<typename T>
+class BidirectionalList
+{
+  struct Node
+  {
+    T data;
+    Node * pver;
+    Node * next;
+  };
+  
+public:
+  //ToDo
+};
+  
 }
